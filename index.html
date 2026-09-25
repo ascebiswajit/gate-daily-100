@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="GATE 2027 Computer Science practice lab with a 100-question original bank, 65-question full mock, scoring, explanations and mastery analytics." />
+  <title>GATE Daily · 100 Practice Sets</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#dashboard" data-nav="dashboard" aria-label="GATE CS 2027 Mastery Lab home">
+      <span class="brand-mark">G</span>
+      <span><strong>GATE CS 2027</strong><small>Mastery Lab</small></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation"><button class="nav-btn active" data-view="daily">Daily Sets</button>
+      <button class="nav-btn" data-view="dashboard">Dashboard</button>
+      <button class="nav-btn" data-view="mock">Full Mock</button>
+      <button class="nav-btn" data-view="practice">Practice</button>
+      <button class="nav-btn" data-view="analytics">Analytics</button>
+    </nav>
+    <div class="top-actions">
+      <span class="pill" id="headerProgress">0 attempted</span>
+      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main>
+<section id="daily" class="view active-view">
+ <div class="daily-heading"><div><span class="eyebrow">YOUR DAILY CS WORKOUT</span><h1>A little sharper. Every day.</h1><p class="muted">100 practice sets. One consistent habit.</p></div><span class="pill" id="dailyDate"></span></div>
+ <div class="daily-top"><article class="daily-feature"><div><span class="eyebrow">TODAY’S FEATURED SET</span><h2 id="featuredTitle"></h2><p>20 numerical questions · 30 minutes · 11 subjects</p><button class="primary-btn" id="startDaily">Start today’s set →</button><p id="nextDaily" class="daily-caption"></p></div><div class="daily-number" aria-hidden="true" id="featuredNumber"></div></article><article class="card daily-progress"><span class="eyebrow">YOUR CONSISTENCY</span><strong id="dailyStreak">0 days</strong><p>Current study streak</p><div id="dailyStats"></div></article></div>
+ <div id="dailyExam" class="hidden"></div>
+ <div class="daily-library-head"><div><h2>Your 100-set collection</h2><p class="muted">Start anywhere. Return to unfinished sets.</p></div><label>Show <select id="setFilter"><option value="all">All sets</option><option value="new">Not started</option><option value="active">In progress</option><option value="done">Completed</option></select></label></div>
+ <div class="sets-grid" id="setsGrid"></div>
+ <p class="muted daily-caption">These are 100 numerical-variant practice sets built from 20 question templates, not 100 full mock papers. The featured set changes at midnight IST and cycles after 100 days. All sets are available now. Practice supports preparation; it cannot guarantee qualification or rank. Progress is saved in this browser.</p>
+</section>
+    <section id="dashboard" class="view">
+      <div class="hero-wrap">
+        <div class="hero-copy">
+          <span class="eyebrow">Original practice set • syllabus-aligned</span>
+          <h1>Train for GATE CS 2027 like it is exam day.</h1>
+          <p>100 original simulated questions mapped to the official GATE 2027 CS syllabus. Take a 65-question, 100-mark, 180-minute full mock or drill weak subjects with instant explanations.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" data-go="mock">Start Full Mock</button>
+            <button class="secondary-btn" data-go="practice">Practice by Subject</button>
+          </div>
+          <p class="fineprint">This is an independent practice resource, not an official GATE paper and not a prediction of actual 2027 questions.</p>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-score">
+            <span>Mastery Index</span>
+            <strong id="masteryIndex">0%</strong>
+            <div class="progress-track"><div id="masteryBar" class="progress-fill"></div></div>
+            <small id="masteryCaption">Start practicing to build your baseline.</small>
+          </div>
+          <div class="mini-grid">
+            <div><b>100</b><span>Question Bank</span></div>
+            <div><b>65</b><span>Mock Questions</span></div>
+            <div><b>100</b><span>Mock Marks</span></div>
+            <div><b>180</b><span>Minutes</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="card span-2">
+          <div class="card-head">
+            <div><span class="eyebrow">Official structure</span><h2>Full Mock Blueprint</h2></div>
+            <span class="verified">✓ Pattern checked</span>
+          </div>
+          <div class="blueprint-grid">
+            <div class="blueprint-item"><span>General Aptitude</span><strong>10 Q</strong><small>15 marks</small></div>
+            <div class="blueprint-item"><span>Engineering Mathematics</span><strong>7 Q</strong><small>13 marks</small></div>
+            <div class="blueprint-item"><span>CS Core</span><strong>48 Q</strong><small>72 marks</small></div>
+            <div class="blueprint-item"><span>Question types</span><strong>MCQ · MSQ · NAT</strong><small>1 & 2 marks</small></div>
+          </div>
+          <div class="note-row"><span>MCQ negative marking:</span><b>−1/3 for 1-mark • −2/3 for 2-mark</b><span>MSQ/NAT:</span><b>No negative marking</b></div>
+        </article>
+
+        <article class="card">
+          <span class="eyebrow">Next move</span>
+          <h2 id="nextActionTitle">Build a baseline</h2>
+          <p id="nextActionText">Take the full mock once without pausing. Then use analytics to attack weak subjects.</p>
+          <button class="text-btn" data-go="mock">Open mock →</button>
+        </article>
+
+        <article class="card span-2">
+          <div class="card-head"><div><span class="eyebrow">Coverage</span><h2>2027 CS Syllabus Map</h2></div><span class="muted">100 questions</span></div>
+          <div id="subjectCoverage" class="subject-list"></div>
+        </article>
+
+        <article class="card">
+          <span class="eyebrow">Reference</span>
+          <h2>Official GATE Sources</h2>
+          <p>Use the official syllabus and paper pattern as the final authority if anything changes.</p>
+          <a class="source-link" href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" target="_blank" rel="noreferrer">CS 2027 syllabus ↗</a>
+          <a class="source-link" href="https://gate2027.iitm.ac.in/question_paper_pattern" target="_blank" rel="noreferrer">Question paper pattern ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="mock" class="view">
+      <div class="section-heading">
+        <div><span class="eyebrow">Full-length simulation</span><h1>GATE CS 2027 Mock 01</h1><p>65 questions · 100 marks · 180 minutes · official negative-marking rules reproduced for practice.</p></div>
+        <div class="mock-status"><span id="mockTimer">03:00:00</span><small id="mockAnswered">0 / 65 answered</small></div>
+      </div>
+
+      <div id="mockIntro" class="exam-intro card">
+        <h2>Before you begin</h2>
+        <div class="rules-grid">
+          <div><strong>MCQ</strong><span>One correct option. Wrong answers attract negative marks.</span></div>
+          <div><strong>MSQ</strong><span>One or more correct options. No partial or negative marking.</span></div>
+          <div><strong>NAT</strong><span>Enter a numerical answer. No negative marking.</span></div>
+          <div><strong>Simulation</strong><span>Timer continues until you submit or time expires.</span></div>
+        </div>
+        <label class="check-row"><input type="checkbox" id="examPledge" /> I understand this is an original practice mock, not the actual GATE 2027 paper.</label>
+        <button id="startMockBtn" class="primary-btn">Begin 180-minute Mock</button>
+      </div>
+
+      <div id="examShell" class="exam-shell hidden">
+        <aside class="exam-sidebar">
+          <div class="legend">
+            <span><i class="dot answered"></i>Answered</span><span><i class="dot review"></i>Review</span><span><i class="dot current"></i>Current</span>
+          </div>
+          <div id="questionPalette" class="palette"></div>
+          <button id="submitMockBtn" class="danger-btn">Submit Mock</button>
+        </aside>
+        <article class="question-card">
+          <div class="question-meta"><span id="mockQNo"></span><span id="mockSubject"></span><span id="mockType"></span><span id="mockMarks"></span></div>
+          <div id="mockStem" class="stem"></div>
+          <div id="mockAnswerArea" class="answer-area"></div>
+          <div class="exam-actions">
+            <button id="clearMockBtn" class="ghost-btn">Clear response</button>
+            <button id="reviewMockBtn" class="secondary-btn">Mark for review</button>
+            <button id="prevMockBtn" class="ghost-btn">← Previous</button>
+            <button id="saveNextBtn" class="primary-btn">Save & Next →</button>
+          </div>
+        </article>
+      </div>
+
+      <div id="mockResult" class="hidden"></div>
+    </section>
+
+    <section id="practice" class="view">
+      <div class="section-heading">
+        <div><span class="eyebrow">Targeted drilling</span><h1>Practice Lab</h1><p>Filter the 100-question bank by subject, difficulty and type. Check answers instantly and learn from the explanation.</p></div>
+        <button id="randomPracticeBtn" class="secondary-btn">Shuffle question</button>
+      </div>
+
+      <div class="practice-layout">
+        <aside class="filter-card card">
+          <label>Subject<select id="subjectFilter"><option value="all">All subjects</option></select></label>
+          <label>Difficulty<select id="difficultyFilter"><option value="all">All levels</option><option>Easy</option><option>Medium</option><option>Hard</option></select></label>
+          <label>Type<select id="typeFilter"><option value="all">All types</option><option>MCQ</option><option>MSQ</option><option>NAT</option></select></label>
+          <div class="filter-stat"><span>Matching questions</span><strong id="filteredCount">100</strong></div>
+          <button id="resetFiltersBtn" class="ghost-btn full">Reset filters</button>
+        </aside>
+
+        <article class="practice-card question-card">
+          <div class="question-meta"><span id="practiceQNo"></span><span id="practiceSubject"></span><span id="practiceType"></span><span id="practiceMarks"></span><span id="practiceDifficulty"></span></div>
+          <div id="practiceStem" class="stem"></div>
+          <div id="practiceAnswerArea" class="answer-area"></div>
+          <div id="practiceFeedback" class="feedback hidden"></div>
+          <div class="exam-actions practice-actions">
+            <button id="prevPracticeBtn" class="ghost-btn">← Previous</button>
+            <button id="checkPracticeBtn" class="primary-btn">Check answer</button>
+            <button id="nextPracticeBtn" class="secondary-btn">Next →</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="analytics" class="view">
+      <div class="section-heading">
+        <div><span class="eyebrow">Your local progress</span><h1>Performance Analytics</h1><p>Your attempts are stored only in this browser using localStorage.</p></div>
+        <button id="resetProgressBtn" class="danger-outline">Reset all progress</button>
+      </div>
+      <div class="analytics-summary" id="analyticsSummary"></div>
+      <div class="analytics-grid">
+        <article class="card span-2"><div class="card-head"><div><span class="eyebrow">Mastery by subject</span><h2>Accuracy & attempts</h2></div></div><div id="subjectAnalytics"></div></article>
+        <article class="card"><span class="eyebrow">Focus list</span><h2>Weak Topics</h2><div id="weakTopics"></div></article>
+        <article class="card span-3"><span class="eyebrow">Mock history</span><h2>Full Mock Attempts</h2><div id="mockHistory"></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>GATE CS 2027 Mastery Lab</strong><span>Independent educational practice tool.</span></div>
+    <div><span>Built around the official IIT Madras GATE 2027 CS syllabus and question-paper pattern.</span></div>
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+<script src="sets.js"></script>
+<script src="daily.js"></script>
+</body>
+</html>
