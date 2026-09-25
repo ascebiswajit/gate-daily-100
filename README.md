@@ -18,3 +18,16 @@ its deadline passed. Daily NAT answers use absolute tolerance 0.001.
 
 Progress lives in this browser's localStorage and does not sync across devices.
 Clearing browser data removes progress. This resource cannot guarantee a rank.
+
+## Past papers and preparation
+
+Past Papers includes question-paper and answer-key PDF links for 2017–2026.
+2021, 2024, 2025 and 2026 have two sessions. 2017 currently includes CS-2 only.
+2018–2026 link to official IIT archives (some hosted on Google Drive); 2017
+uses clearly labelled third-party archival copies because the original host
+is unavailable. Keys give answers, not detailed solutions.
+
+Study Plan includes 11 subject summaries, a suggested daily routine and 33
+locally saved milestones covering concepts, PYQs and revision.
+
+Live site: https://gate-daily-100.biswajitnayak2402.chatgpt.site

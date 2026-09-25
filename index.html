@@ -13,7 +13,7 @@
       <span class="brand-mark">G</span>
       <span><strong>GATE CS 2027</strong><small>Mastery Lab</small></span>
     </a>
-    <nav class="nav" aria-label="Main navigation"><button class="nav-btn active" data-view="daily">Daily Sets</button>
+    <nav class="nav" aria-label="Main navigation"><button class="nav-btn active" data-view="daily">Daily Sets</button><button class="nav-btn" data-view="papers">Past Papers</button><button class="nav-btn" data-view="prepare">Study Plan</button>
       <button class="nav-btn" data-view="dashboard">Dashboard</button>
       <button class="nav-btn" data-view="mock">Full Mock</button>
       <button class="nav-btn" data-view="practice">Practice</button>
@@ -26,8 +26,19 @@
   </header>
 
   <main>
+<section id="papers" class="view">
+<div class="daily-heading"><div><span class="eyebrow">GATE CS · 2017–2026</span><h1>Learn from the real papers.</h1><p class="muted">Question papers and matching answer-key PDFs, organized by year and session.</p></div><span class="pill">10 years of PYQs</span></div>
+<div class="card paper-guide"><h2>Solve first. Check next. Revisit mistakes.</h2><p>Attempt a paper under timed conditions, then compare your answers with its matching key. Official answer keys list answers and accepted ranges; they do not contain worked explanations.</p><p class="muted">Use the session label and master-paper question order when checking answers. Older papers may include topics outside the current syllabus.</p></div>
+<div class="daily-library-head"><h2>Paper archive</h2><label>Year <select id="paperYear"><option value="all">All years</option></select></label></div><div id="paperArchive" class="paper-grid"></div><p class="muted daily-caption">PDFs open in a new tab; use the PDF viewer’s download button to save offline. Source links are included for every entry. Checked September 2026.</p>
+</section>
+<section id="prepare" class="view">
+<div class="daily-heading"><div><span class="eyebrow">GATE 2027 · COMPUTER SCIENCE</span><h1>Turn the syllabus into a routine.</h1><p class="muted">Study a concept, solve questions, and return to what you missed.</p></div><a class="secondary-btn" href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" target="_blank" rel="noopener noreferrer">Official CS syllabus ↗</a></div>
+<div class="prep-routine"><article class="card"><span class="eyebrow">01 · LEARN</span><h2>60 minutes</h2><p>Work through one topic. Write a short explanation and its key formulas from memory.</p></article><article class="card"><span class="eyebrow">02 · PRACTICE</span><h2>45 minutes</h2><p>Solve matching past-paper questions and your daily set. Record why each mistake happened.</p><button class="text-btn" data-go="daily">Open daily sets →</button></article><article class="card"><span class="eyebrow">03 · REVIEW</span><h2>15 minutes</h2><p>Reattempt yesterday’s errors without looking at answers. Revisit them again a week later.</p><button class="text-btn" data-go="papers">Open past papers →</button></article></div>
+<div class="daily-library-head"><div><h2>Your subject checklist</h2><p class="muted">Suggested study order. Check each milestone when you finish it.</p></div><strong id="prepProgress" aria-live="polite"></strong></div><div id="prepSubjects" class="paper-grid"></div>
+<div class="card paper-guide"><h2>Weekly exam practice</h2><p>Reserve one session for a timed full paper and another for reviewing every incorrect or skipped answer. Use older papers for learning and keep a few recent papers untouched for final mock practice.</p><button class="primary-btn" data-go="mock">Take the full mock</button><p class="muted daily-caption">This is a suggested routine, not an official schedule. Checklist progress stays in this browser.</p></div>
+</section>
 <section id="daily" class="view active-view">
- <div class="daily-heading"><div><span class="eyebrow">YOUR DAILY CS WORKOUT</span><h1>A little sharper. Every day.</h1><p class="muted">100 practice sets. One consistent habit.</p></div><span class="pill" id="dailyDate"></span></div>
+ <div class="daily-heading"><div><span class="eyebrow">YOUR DAILY CS WORKOUT</span><h1>A little sharper. Every day.</h1><p class="muted">100 practice sets. Official past papers. One consistent habit.</p></div><span class="pill" id="dailyDate"></span></div>
  <div class="daily-top"><article class="daily-feature"><div><span class="eyebrow">TODAY’S FEATURED SET</span><h2 id="featuredTitle"></h2><p>20 numerical questions · 30 minutes · 11 subjects</p><button class="primary-btn" id="startDaily">Start today’s set →</button><p id="nextDaily" class="daily-caption"></p></div><div class="daily-number" aria-hidden="true" id="featuredNumber"></div></article><article class="card daily-progress"><span class="eyebrow">YOUR CONSISTENCY</span><strong id="dailyStreak">0 days</strong><p>Current study streak</p><div id="dailyStats"></div></article></div>
  <div id="dailyExam" class="hidden"></div>
  <div class="daily-library-head"><div><h2>Your 100-set collection</h2><p class="muted">Start anywhere. Return to unfinished sets.</p></div><label>Show <select id="setFilter"><option value="all">All sets</option><option value="new">Not started</option><option value="active">In progress</option><option value="done">Completed</option></select></label></div>
@@ -193,5 +204,6 @@
   <script src="app.js"></script>
 <script src="sets.js"></script>
 <script src="daily.js"></script>
+<script src="papers.js"></script>
 </body>
 </html>
